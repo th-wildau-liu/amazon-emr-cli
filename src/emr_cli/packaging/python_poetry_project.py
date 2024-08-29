@@ -90,10 +90,8 @@ class PythonPoetryProject(DeploymentPackage):
             s3_client,
             bucket,
             {
-                self.entry_point_path: os.path.join(prefix, filename),
-                os.path.join(self.dist_dir, "pyspark_deps.tar.gz"): os.path.join(
-                    prefix, "pyspark_deps.tar.gz"
-                ),
+                self.entry_point_path: f"{prefix}/{filename}",
+                os.path.join(self.dist_dir, "pyspark_deps.tar.gz"): f"{prefix}/pyspark_deps.tar.gz",
             },
         )
         uploader.run()
